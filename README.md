@@ -6,28 +6,6 @@ My daily Rust learning journey - documenting progress, experiments, and discover
 
 This repository contains my daily learnings, practice code, and experiments with Rust. Each day, I explore different aspects of Rust programming and document my progress here.
 
-## Structure
-
-```
-Everust/
-├── daily-logs/
-│   ├── 2025-01-01.md       # Daily learning notes
-│   ├── 2025-01-02.md
-│   └── ...
-├── exercises/
-│   ├── basics/             # Basic Rust concepts
-│   ├── ownership/          # Ownership and borrowing
-│   ├── structs-enums/      # Structs and enums
-│   ├── error-handling/     # Error handling patterns
-│   ├── collections/        # Vectors, HashMaps, etc.
-│   ├── concurrency/        # Threads and async
-│   └── projects/           # Mini projects
-├── resources/
-│   ├── books.md            # Useful books and references
-│   ├── tutorials.md        # Online tutorials and courses
-│   └── cheatsheet.md       # Quick reference guide
-└── README.md               # This file
-```
 
 ## Daily Learning Format
 
