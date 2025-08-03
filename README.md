@@ -1,6 +1,6 @@
 # Everust 🦀
 
-My daily Rust learning journey - documenting progress, experiments, and discoveries as I master the Rust programming language.
+My Rust learning journey - documenting progress, experiments, and discoveries as I master the Rust programming language.
 
 ## About This Repository 📚
 
@@ -8,7 +8,7 @@ This repository contains my daily learnings, practice code, and experiments with
 
 ---
 
-## 🗓️ Day 1 Learnings: Chapter 1 - Getting Started
+#Chapter 1 - Getting Started
 
 Chapter 1 of "The Rust Programming Language" focuses on setting up your Rust development environment and writing your first Rust programs. This section outlines my findings from day one.
 
