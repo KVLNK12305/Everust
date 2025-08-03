@@ -17,3 +17,50 @@
 # Optional: ignore Makefile if it's generated
 # Uncomment if you don’t want to track the Makefile
 # Makefile
+# Binaries and build artifacts
+/target/
+**/*.rs.bk
+
+# Cargo specific files
+Cargo.lock
+.cargo/config.toml
+.cargo/config
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# IDEs and editors
+# VSCode
+.vscode/
+
+# IntelliJ / CLion / RustRover
+.idea/
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# Emacs
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Logs and debug files
+*.log
+*.dSYM/
