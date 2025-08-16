@@ -1,4 +1,4 @@
-use std::{io};
+use std::io;
 
 // type definitions in functions
 fn print_labeled_measurement(value: i32, unit_label: char) {
