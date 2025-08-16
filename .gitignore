@@ -1,6 +1,6 @@
 # Cargo build outputs
-/target
-/debug
+target
+debug
 
 # Backup files created by rustfmt
 **/*.rs.bk
