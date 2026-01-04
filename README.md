@@ -166,23 +166,3 @@ Rust • Systems • Performance • Security
 
 ```
 
----
-
-## Why this README works for resumes
-
-✔ Clear problem statement  
-✔ Strong technical intent  
-✔ Explicit architecture thinking  
-✔ Not a “toy project” tone  
-✔ Interviewers can **ask deep questions** from it  
-
-If you want, next I can:
-- Tighten this for **ATS-friendly resumes**
-- Add **badges + CI structure**
-- Write a **one-line GitHub bio summary**
-- Help design **backend API contracts**
-- Or plan **resume bullet expansion** for interviews
-
-Just tell me what’s next.
-```
-
