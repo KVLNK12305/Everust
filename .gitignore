@@ -1,39 +1,77 @@
+########################################
+# Rust / Cargo
+########################################
+
 # Cargo build outputs
-target
-debug
+target/
+debug/
 
-# Backup files created by rustfmt
+# Cargo lockfile
+Cargo.lock
+
+# Cargo config (local-only)
+.cargo/config
+.cargo/config.toml
+
+# Rustfmt backups
 **/*.rs.bk
-
-# Windows debug symbols
-*.pdb
 
 # Mutation testing outputs
 **/mutants.out*/
 
-# IDE configs (RustRover, IntelliJ, CLion, etc.)
-.idea/
+# Windows debug symbols
+*.pdb
 
-# Optional: ignore Makefile if it's generated
-# Uncomment if you don’t want to track the Makefile
-# Makefile
-# Binaries and build artifacts
-/target/
-**/*.rs.bk
 
-# Cargo specific files
-Cargo.lock
-.cargo/config.toml
-.cargo/config
+########################################
+# Frontend (SvelteKit / Vite / Bun)
+########################################
 
-# Backup files
-*.bak
-*.tmp
-*.swp
-*.swo
+# Node / Bun dependencies
+node_modules/
+bun.lockb
 
-# IDEs and editors
-# VSCode
+# SvelteKit build output
+.svelte-kit/
+build/
+
+# Vite cache
+.vite/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Tailwind cache
+.tailwindcache
+
+
+########################################
+# Testing / Coverage
+########################################
+
+# Playwright
+playwright-report/
+test-results/
+
+# Vitest
+coverage/
+
+
+########################################
+# Logs & Debug
+########################################
+
+*.log
+*.dSYM/
+
+
+########################################
+# IDEs & Editors
+########################################
+
+# VS Code
 .vscode/
 
 # IntelliJ / CLion / RustRover
@@ -51,6 +89,11 @@ Cargo.lock
 # Emacs
 *~
 
+
+########################################
+# OS files
+########################################
+
 # macOS
 .DS_Store
 
@@ -58,9 +101,15 @@ Cargo.lock
 Thumbs.db
 Desktop.ini
 
-# Linux
+# Linux temp files
 *~
 
-# Logs and debug files
-*.log
-*.dSYM/
+
+########################################
+# Misc Backups
+########################################
+
+*.bak
+*.tmp
+*.swp
+*.swo
