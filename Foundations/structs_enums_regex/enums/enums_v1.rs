@@ -1,5 +1,12 @@
 /*An enum represents one value that can be exactly one of several possibilities.*/
 
+/*Deeper rule
+
+Rust assumes:
+
+If code exists, it should serve a purpose. */
+
+
 enum Direction {
     North,
     South,
@@ -73,6 +80,8 @@ fn main() {
     // executable code lives here
     let m1 = Msg::Write("hello".to_string());
     let m2 = Msg::Move { x: 10, y: 20 };
+    let d = Direction::North;
+    move_npc(d);
 
     process_message(m1);
     process_message(m2);
