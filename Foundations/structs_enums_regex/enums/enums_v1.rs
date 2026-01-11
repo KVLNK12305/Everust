@@ -13,24 +13,16 @@ What does this mean?
     There is no “invalid” direction
 */
 
-fn main(){
-    let dir = Direction::East;
     /*
     At runtime:
-
         d is not a string
-
         d is not an integer
-
         d is a tagged value chosen from a closed set of possibilities
-
     This “closed set” property is crucial.
      */
 
-}
 
-
-Bad design:
+// Bad design:
 
 fn move_player(dir: &str) {
     match dir {
@@ -57,3 +49,45 @@ fn move_npc(dir: Direction){
     // no invalid states possible
     // compiler enforces correctness
 }
+
+enum Msg {
+    Quit,
+    Write(String),
+    Move { x: i32, y: i32 },
+    ChangeColor { r: i32, g: i32, b: i32 },
+}
+
+// defines behavior (OK at top level)
+fn process_message(msg: Msg) {
+    match msg {
+        Msg::Quit => println!("Quit message"),
+        Msg::Write(text) => println!("Writing message: {}", text),
+        Msg::Move { x, y } => println!("Moving to ({}, {})", x, y),
+        Msg::ChangeColor { r, g, b } => {
+            println!("Changing color to RGB({}, {}, {})", r, g, b)
+        }
+    }
+}
+
+fn main() {
+    // executable code lives here
+    let m1 = Msg::Write("hello".to_string());
+    let m2 = Msg::Move { x: 10, y: 20 };
+
+    process_message(m1);
+    process_message(m2);
+}
+
+
+// These two lines are illegal at module scope:
+
+// let m1 = Msg::Write("hello".to_string());
+// let m2 = Msg::Move { x: 10, y: 20 };
+
+/*
+Reason:
+
+let is a statement, and statements are only allowed inside functions or blocks.
+
+Rust files are modules, not scripts.
+ */
