@@ -1,14 +1,9 @@
-
-
----
-
-````md
 # Everust 🦀
 
-**Everust** is a long-term, systems-oriented project that documents and operationalizes my journey of learning **Rust** by turning concepts into a real, end-to-end application.  
-Instead of isolated snippets, Everust connects **Rust fundamentals, experiments, benchmarks, and a live web interface** backed by a Rust API.
+**Everust** is a long-term, systems-oriented project that documents and operationalizes my journey of learning **Rust** by turning concepts into a real, end-to-end system.
 
-The goal is simple:  
+Instead of isolated snippets, Everust connects **Rust fundamentals, experiments, benchmarks, and a live web interface**, backed by a Rust API.
+
 > *Learn Rust the way it is used in real systems.*
 
 ---
@@ -18,9 +13,9 @@ The goal is simple:
 - Treat learning code as **first-class engineering artifacts**
 - Keep **foundations pure**, production code isolated
 - Emphasize **correctness, performance, and clarity**
-- Gradually evolve from fundamentals → systems → security
+- Evolve deliberately from fundamentals → systems → security
 
-Everust is designed to scale with my understanding of Rust over time.
+Everust is designed to scale alongside my understanding of Rust.
 
 ---
 
@@ -28,78 +23,72 @@ Everust is designed to scale with my understanding of Rust over time.
 
 ```text
 everust/
-├─ foundations/        # Core Rust learning code (untouched & concept-focused)
+├─ foundations/        # Core Rust learning code (concept-focused, framework-free)
 ├─ backend/            # Rust backend API (Axum)
 ├─ web/                # Frontend (SvelteKit + Tailwind CSS)
 ├─ experiments/        # Systems-level and exploratory Rust experiments
 ├─ benches/            # Performance benchmarks and comparisons
 └─ README.md
-````
+```
 
-### Directory Intent
+---
 
-* **`foundations/`**
+## 📁 Directory Intent
 
-  * Ownership, borrowing, lifetimes
-  * Traits, enums, pattern matching
-  * Memory and concurrency basics
-    *This directory is intentionally kept framework-free.*
+### `foundations/`
+- Ownership, borrowing, and lifetimes
+- Traits, enums, and pattern matching
+- Memory model and concurrency basics  
+*This directory intentionally avoids frameworks and abstractions.*
 
-* **`backend/`**
+### `backend/`
+- Production-style Rust backend using **Axum**
+- Async APIs, routing, and structured responses
+- Logging, tracing, and future middleware integration
 
-  * Production-style Rust backend using **Axum**
-  * Async APIs, routing, structured responses
-  * Logging, tracing, and future middleware
+### `web/`
+- Minimal UI built with **SvelteKit**
+- Tailwind CSS for rapid, consistent styling
+- Consumes and visualizes Rust backend APIs
 
-* **`web/`**
+### `experiments/`
+- Unsafe Rust explorations
+- Concurrency models and synchronization
+- Memory layout, cache behavior, and performance testing
 
-  * Clean UI built with **SvelteKit**
-  * Tailwind for rapid and consistent styling
-  * Consumes the Rust backend APIs
-
-* **`experiments/`**
-
-  * Unsafe Rust explorations
-  * Concurrency models
-  * Memory layout and performance tests
-
-* **`benches/`**
-
-  * Criterion-based benchmarks
-  * Comparative performance analysis
-  * Visualization-ready outputs
+### `benches/`
+- Criterion-based benchmarks
+- Comparative performance analysis
+- Visualization-ready benchmark outputs
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Backend
-
-* **Rust**
-* **Axum** (HTTP API framework)
-* **Tokio** (async runtime)
-* **Tower** (middleware ecosystem)
+- **Rust**
+- **Axum** (HTTP API framework)
+- **Tokio** (async runtime)
+- **Tower** (middleware ecosystem)
 
 ### Frontend
-
-* **SvelteKit**
-* **Tailwind CSS**
+- **SvelteKit**
+- **Tailwind CSS**
 
 ### Tooling
-
-* Cargo (Rust)
-* Git & GitHub
-* Linux-based development workflow
+- Cargo
+- Git & GitHub
+- Linux-based development workflow
 
 ---
 
 ## 🚀 Current Status
 
-* ✅ Repository structure finalized
-* ✅ Foundations module actively growing
-* 🚧 Backend API scaffolding in progress
-* 🚧 Frontend integration planned
-* 🔜 Benchmarks and visualizations
+- ✅ Repository structure finalized
+- ✅ Foundations module actively growing
+- 🚧 Backend API scaffolding in progress
+- 🚧 Frontend integration planned
+- 🔜 Benchmarks and visualizations
 
 This project is intentionally iterative and evolving.
 
@@ -107,24 +96,24 @@ This project is intentionally iterative and evolving.
 
 ## 📌 Planned Features
 
-* REST APIs exposing Rust learning modules
-* Visual representation of benchmarks
-* Experiment documentation rendered via the web UI
-* Performance comparisons between Rust approaches
-* Systems & security-focused Rust experiments
-* Observability: logging, tracing, metrics
+- REST APIs exposing Rust learning modules
+- Visual representation of benchmark results
+- Experiment documentation rendered via the web UI
+- Performance comparisons between Rust approaches
+- Systems- and security-focused Rust experiments
+- Observability: logging, tracing, and metrics
 
 ---
 
 ## 🎯 Why This Project Exists
 
-Most learning repositories stop at syntax.
-Everust exists to answer deeper questions:
+Most learning repositories stop at syntax.  
+Everust exists to explore deeper questions:
 
-* How does Rust behave under real workloads?
-* How do ownership and lifetimes scale in production code?
-* What tradeoffs exist between safety and performance?
-* How can Rust be used for secure backend systems?
+- How does Rust behave under real workloads?
+- How do ownership and lifetimes scale in production code?
+- What trade-offs exist between safety and performance?
+- How can Rust be used to build secure backend systems?
 
 This project serves as both a **learning archive** and a **living system**.
 
@@ -132,30 +121,26 @@ This project serves as both a **learning archive** and a **living system**.
 
 ## 📄 Resume Description (Suggested)
 
-> **Everust** — Rust Systems Learning Platform
+> **Everust** — Rust Systems Learning Platform  
 > Designed and implemented a modular Rust-based project combining foundational Rust concepts, a production-style Axum backend, and a modern SvelteKit frontend. Focused on memory safety, async systems, performance benchmarking, and long-term maintainability.
-
-(You can paste this directly under *Projects*.)
 
 ---
 
 ## 📬 Notes
 
-* This repository is intentionally structured for **long-term growth**
-* Code quality and clarity are prioritized over feature velocity
-* Foundations code remains untouched by frameworks by design
+- This repository is structured for **long-term growth**
+- Code quality and clarity are prioritized over feature velocity
+- Foundations code remains framework-free by design
 
 ---
 
 ## 🦀 Author
 
-**Venkata Lakshmi Narasimha Kushal Kurapati**
+**Venkata Lakshmi Narasimha Kushal Kurapati**  
 Rust • Systems • Performance • Security
 
 ---
 
-> *Everust is not a demo project.
+> *Everust is not a demo project.  
 > It is a system that grows as my understanding grows.*
-
-```
 
