@@ -57,7 +57,7 @@
       </div>
 
       <a 
-        href="https://github.com/yourusername/everust" 
+        href="https://github.com/KVLNK12305/Everust" 
         target="_blank" 
         class="text-slate-400 hover:text-white transition-colors"
       >
