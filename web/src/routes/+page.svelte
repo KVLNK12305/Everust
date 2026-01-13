@@ -1,23 +1,35 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { gsap } from 'gsap';
-  import { TextPlugin } from 'gsap/TextPlugin';
+  // ✅ Correct import for production to prevent tree-shaking issues
+  import TextPlugin from 'gsap/dist/TextPlugin';
   import SpotlightCard from '$lib/components/SpotlightCard.svelte';
-  import { Terminal, Cpu, Activity, ShieldCheck } from 'lucide-svelte';
-
-  gsap.registerPlugin(TextPlugin);
+  import { Terminal, Cpu, Activity } from 'lucide-svelte';
 
   onMount(() => {
+    // Register inside onMount (safe for SSR)
+    gsap.registerPlugin(TextPlugin);
+
     const tl = gsap.timeline();
 
-    // 1. Reveal Title
-    tl.from(".hero-title", {
-      y: 50,
-      opacity: 0,
+    // ✅ SAFE REVEAL STRATEGY: 
+    // 1. Force hidden state instantly with JS (prevents FOUC)
+    // 2. Animate TO visible. This guarantees opacity ends at 1.
+    tl.set(".hero-anim", { 
+      y: 50, 
+      opacity: 0 
+    })
+    
+    // 1. Reveal Title & Buttons
+    .to(".hero-anim", {
+      y: 0,
+      opacity: 1,
       duration: 1,
+      stagger: 0.1, // Adds a nice delay between Title -> Buttons
       ease: "power4.out"
     })
-    // 2. Scramble Text Effect (The "Hacker" effect)
+    
+    // 2. Scramble Text Effect
     .to(".scramble-text", {
       duration: 1.5,
       text: {
@@ -25,7 +37,8 @@
         delimiter: ""
       },
       ease: "none"
-    }, "-=0.5")
+    }, "-=0.8") // Overlap slightly for speed
+    
     // 3. Reveal Cards
     .from(".feature-card", {
       y: 30,
@@ -39,9 +52,10 @@
 
 <div class="container mx-auto px-6 py-24">
   <div class="max-w-4xl mx-auto text-center mb-32 relative">
+    
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-rust/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-    <h1 class="hero-title text-7xl md:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
+    <h1 class="hero-anim text-7xl md:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
       EVERUST
     </h1>
     
@@ -51,12 +65,12 @@
       </p>
     </div>
 
-    <p class="hero-title text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+    <p class="hero-anim text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
       Not just a tutorial. A living, breathing system. 
       Documenting the journey from <span class="text-white">Syntax</span> to <span class="text-white">Silicon</span>.
     </p>
 
-    <div class="mt-10 flex gap-4 justify-center hero-title opacity-0">
+    <div class="mt-10 flex gap-4 justify-center hero-anim">
       <a href="/foundations" class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform">
         Start Core
       </a>
