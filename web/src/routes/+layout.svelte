@@ -8,17 +8,19 @@
   let transitionNode: HTMLElement;
 
   // Simple Page Transition
-  $: if ($page.url.pathname) {
-    if (transitionNode) {
-      gsap.fromTo(transitionNode, 
-        { opacity: 0, y: 10 }, 
-        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
-      );
-    }
-  }
+  $: if (mounted && transitionNode && $page.url.pathname) {
+  gsap.fromTo(
+    transitionNode,
+    { opacity: 0, y: 10 },
+    { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+  );
+}
+
+  let mounted = false;
 
   onMount(() => {
     // Subtle background grain animation
+    mounted = true;
     gsap.to(".noise-bg", {
       backgroundPosition: "100% 100%",
       duration: 2,
