@@ -42,10 +42,6 @@
 
   <footer class="fixed bottom-0 left-0 w-full border-t border-white/5 bg-[#0a0a0a]/80 backdrop-blur text-[10px] font-mono text-slate-500 py-1 px-4 flex justify-between items-center z-40">
     <div class="flex gap-4">
-      <span class="flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        SYSTEM: ONLINE
-      </span>
       <span>MEM: SAFE</span>
     </div>
     <div class="uppercase tracking-widest opacity-50">Everust v0.1.0</div>
