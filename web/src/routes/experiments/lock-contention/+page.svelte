@@ -2,6 +2,9 @@
   import { onMount, onDestroy } from "svelte";
   import { gsap } from "gsap";
   import { ArrowLeft, Play, Pause, RotateCcw, AlertTriangle, Shield, Lock, Unlock, Users, Gauge, Code2, Share2, Eye, GraduationCap, BarChart3, TrendingUp, Lightbulb } from "lucide-svelte";
+  import VariableProximity from "$lib/components/VariableProximity.svelte";
+
+  let pageContainer: HTMLElement;
 
   // ─── Simulation State ───
   let mode: "unfair" | "fair" = "unfair";
@@ -207,7 +210,7 @@
     <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
   </div>
 
-  <div class="relative z-10 max-w-6xl mx-auto">
+  <div class="relative z-10 max-w-6xl mx-auto" bind:this={pageContainer}>
 
     <!-- Back -->
     <a href="/experiments" class="hero-anim opacity-0 translate-y-4 inline-flex items-center gap-2 text-slate-500 hover:text-emerald-400 transition-colors mb-12 group font-mono text-sm">
@@ -230,8 +233,15 @@
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Mutex Starvation</span>
       </h1>
       <p class="hero-anim opacity-0 translate-y-4 text-xl text-slate-400 leading-relaxed max-w-3xl">
-        When multiple threads fight for the same lock, some can be perpetually denied access.
-        This is <span class="text-white font-semibold">starvation</span> — and it's one of concurrency's most insidious bugs.
+        <VariableProximity
+          label="When multiple threads fight for the same lock, some can be perpetually denied access. This is starvation — and it's one of concurrency's most insidious bugs."
+          className="variable-proximity-hero"
+          fromFontVariationSettings="'wght' 400, 'opsz' 9"
+          toFontVariationSettings="'wght' 900, 'opsz' 40"
+          containerRef={pageContainer}
+          radius={80}
+          falloff="linear"
+        />
       </p>
     </header>
 
