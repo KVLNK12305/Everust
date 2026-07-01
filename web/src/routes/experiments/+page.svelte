@@ -9,6 +9,17 @@
   // Define data as a constant to ensure it loads
   const experiments = [
     { 
+      id: "05", 
+      title: "GhostShell eBPF/XDP Patterns", 
+      status: "LIVE LAB", 
+      desc: "Zero-copy &[T] slices, active zeroize memory wiping, and async actor architecture.",
+      icon: Terminal,
+      color: "text-rust",
+      border: "hover:border-rust/50",
+      bg: "hover:bg-rust/10",
+      slug: "ghostshell-patterns"
+    },
+    { 
       id: "01", 
       title: "Lock Contention", 
       status: "ACTIVE", 
@@ -16,7 +27,8 @@
       icon: Activity,
       color: "text-emerald-400",
       border: "hover:border-emerald-500/50",
-      bg: "hover:bg-emerald-500/10"
+      bg: "hover:bg-emerald-500/10",
+      slug: "lock-contention"
     },
     { 
       id: "02", 
@@ -113,7 +125,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
       {#each experiments as exp (exp.id)}
-        <a href={exp.id === "01" ? "/experiments/lock-contention" : "#"} class="card-anim opacity-0 translate-y-4 group relative bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:-translate-y-1 block no-underline text-inherit">
+        <a href={exp.slug ? `/experiments/${exp.slug}` : (exp.id === "01" ? "/experiments/lock-contention" : "#")} class="card-anim opacity-0 translate-y-4 group relative bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:-translate-y-1 block no-underline text-inherit">
           
           <div class="flex justify-between items-start mb-8">
             <div class="p-3 bg-white/5 rounded-lg text-slate-300 group-hover:text-white transition-colors">
