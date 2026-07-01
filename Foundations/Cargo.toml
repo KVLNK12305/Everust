@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "ownerships",
+    "tables_game",
+    "structs_enums_regex/structs",
+    "ghostshell_patterns",
+]
+resolver = "2"
