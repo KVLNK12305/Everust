@@ -11,7 +11,8 @@
       icon: Zap,
       color: "text-amber-400",
       border: "group-hover:border-amber-500/50",
-      bg: "group-hover:bg-amber-500/10"
+      bg: "group-hover:bg-amber-500/10",
+      slug: "throughput"
     },
     {
       label: "Latency",
@@ -19,7 +20,8 @@
       icon: Timer,
       color: "text-cyan-400",
       border: "group-hover:border-cyan-500/50",
-      bg: "group-hover:bg-cyan-500/10"
+      bg: "group-hover:bg-cyan-500/10",
+      slug: "latency"
     },
     {
       label: "Memory",
@@ -27,7 +29,8 @@
       icon: Database,
       color: "text-rose-400",
       border: "group-hover:border-rose-500/50",
-      bg: "group-hover:bg-rose-500/10"
+      bg: "group-hover:bg-rose-500/10",
+      slug: "memory"
     }
   ];
 
@@ -91,7 +94,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
       {#each sensors as sensor}
-        <div class="sensor-card opacity-0 translate-y-8 group relative bg-white/5 border border-white/10 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] {sensor.border} {sensor.bg}">
+        <a href={`/benches/${sensor.slug}`} class="sensor-card opacity-0 translate-y-8 group relative bg-white/5 border border-white/10 rounded-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] block no-underline text-inherit {sensor.border} {sensor.bg}">
           
           <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
             <div class="signal-line absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"></div>
@@ -119,7 +122,7 @@
             <div class="w-1/5 bg-current h-[10%] rounded-t-sm animate-pulse delay-200 {sensor.color}"></div>
           </div>
 
-        </div>
+        </a>
       {/each}
     </div>
 

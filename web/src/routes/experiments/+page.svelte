@@ -38,7 +38,8 @@
       icon: ShieldAlert,
       color: "text-red-400",
       border: "hover:border-red-500/50",
-      bg: "hover:bg-red-500/10"
+      bg: "hover:bg-red-500/10",
+      slug: "unsafe-boundaries"
     },
     { 
       id: "03", 
@@ -48,7 +49,8 @@
       icon: Zap,
       color: "text-yellow-400",
       border: "hover:border-yellow-500/50",
-      bg: "hover:bg-yellow-500/10"
+      bg: "hover:bg-yellow-500/10",
+      slug: "async-runtime"
     },
     { 
       id: "04", 
@@ -58,7 +60,8 @@
       icon: Cpu,
       color: "text-blue-400",
       border: "hover:border-blue-500/50",
-      bg: "hover:bg-blue-500/10"
+      bg: "hover:bg-blue-500/10",
+      slug: "cache-locality"
     }
   ];
 
