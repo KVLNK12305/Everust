@@ -1,0 +1,12 @@
+[package]
+name = "lock-contention"
+version = "0.1.0"
+edition = "2021"
+description = "Reproducible multi-threaded lock contention and starvation workload for Everust"
+license = "MIT"
+
+[dependencies]
+everust-core = { path = "../../crates/everust-core" }
+everust-agent = { path = "../../crates/everust-agent" }
+everust-analyzer = { path = "../../crates/everust-analyzer" }
+tokio = { version = "1.40", features = ["full"] }
