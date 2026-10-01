@@ -1,14 +1,14 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { Github, Terminal, Cpu, Activity, Home } from 'lucide-svelte';
+  import { Github, Terminal, Cpu, Activity, LayoutDashboard } from 'lucide-svelte';
 
   // Helper to check if a route is active
   $: isActive = (path: string) => $page.url.pathname.startsWith(path);
 
   const navItems = [
-    { label: 'Foundations', path: '/foundations', icon: Terminal },
-    { label: 'Experiments', path: '/experiments', icon: Cpu },
-    { label: 'Benches', path: '/benches', icon: Activity }
+    { label: 'Workbench', path: '/workbench', icon: LayoutDashboard },
+    { label: 'Workloads', path: '/experiments', icon: Cpu },
+    { label: 'Foundations', path: '/foundations', icon: Terminal }
   ];
 </script>
 
@@ -26,7 +26,7 @@
           EVERUST
         </span>
         <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-          Systems Learning
+          Flight Recorder
         </span>
       </div>
     </a>

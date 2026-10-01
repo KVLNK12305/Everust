@@ -128,7 +128,12 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
       {#each experiments as exp (exp.id)}
-        <a href={exp.slug ? `/experiments/${exp.slug}` : (exp.id === "01" ? "/experiments/lock-contention" : "#")} class="card-anim opacity-0 translate-y-4 group relative bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:-translate-y-1 block no-underline text-inherit">
+        {@const isLive = exp.slug === "lock-contention" || exp.slug === "ghostshell-patterns"}
+        <svelte:element 
+          this={isLive ? "a" : "div"}
+          href={isLive ? `/experiments/${exp.slug}` : undefined}
+          class="card-anim opacity-0 translate-y-4 group relative bg-white/5 border border-white/10 rounded-xl p-8 transition-all duration-300 {isLive ? 'hover:border-white/20 hover:bg-white/[0.07] hover:-translate-y-1 cursor-pointer' : 'opacity-70'} block no-underline text-inherit"
+        >
           
           <div class="flex justify-between items-start mb-8">
             <div class="p-3 bg-white/5 rounded-lg text-slate-300 group-hover:text-white transition-colors">
@@ -151,7 +156,7 @@
             <span class="font-mono text-xs text-slate-500 group-hover:text-white transition-colors">Initialize Sequence</span>
             <ArrowRight size={16} class="transform group-hover:translate-x-1 transition-transform" />
           </div>
-        </a>
+        </svelte:element>
       {/each}
     </div>
 

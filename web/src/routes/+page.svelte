@@ -33,7 +33,7 @@
     .to(".scramble-text", {
       duration: 1.5,
       text: {
-        value: "SYSTEMS • SECURITY • RUST",
+        value: "SYSTEMS FLIGHT RECORDER & WORKBENCH",
         delimiter: ""
       },
       ease: "none"
@@ -50,70 +50,80 @@
   });
 </script>
 
-<div class="container mx-auto px-6 py-24">
-  <div class="max-w-4xl mx-auto text-center mb-32 relative">
-    
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-rust/20 blur-[100px] rounded-full pointer-events-none"></div>
+<svelte:head>
+  <title>Everust — Visual Systems Flight Recorder for Rust</title>
+</svelte:head>
 
-    <h1 class="hero-anim text-7xl md:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
+<div class="container mx-auto px-6 py-24">
+  <div class="max-w-4xl mx-auto text-center mb-28 relative">
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[320px] bg-rust/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <h1 class="hero-anim text-7xl md:text-9xl font-bold tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40">
       EVERUST
     </h1>
     
-    <div class="h-8 mb-8">
-      <p class="scramble-text font-mono text-rust text-lg tracking-widest uppercase">
-        INITIALIZING...
+    <div class="h-8 mb-6">
+      <p class="scramble-text font-mono text-rust text-sm md:text-base tracking-[0.25em] uppercase font-semibold">
+        INITIALIZING RECORDER...
       </p>
     </div>
 
-    <p class="hero-anim text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-      Not just a tutorial. A living, breathing system. 
-      Documenting the journey from <span class="text-white">Syntax</span> to <span class="text-white">Silicon</span>.
+    <p class="hero-anim text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+      Continuous in-process flight recording and post-mortem visual investigation for Rust.
+      Deterministically diagnose <span class="text-white font-medium">async runtime stalls</span>, <span class="text-white font-medium">lock contention</span>, and <span class="text-white font-medium">task starvation</span>.
     </p>
 
-    <div class="mt-10 flex gap-4 justify-center hero-anim">
-      <a href="/foundations" class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform">
-        Start Core
+    <div class="mt-10 flex flex-wrap gap-4 justify-center hero-anim">
+      <a href="/workbench" class="px-8 py-3.5 bg-rust hover:bg-rust/90 text-white font-semibold rounded-full shadow-[0_0_25px_rgba(206,75,41,0.4)] hover:scale-105 transition-all flex items-center gap-2">
+        <Activity size={18} />
+        <span>Launch Workbench</span>
       </a>
-      <a href="/experiments" class="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-full hover:bg-white/10 transition-colors">
-        View Labs
+      <a href="/experiments" class="px-8 py-3.5 bg-white/5 border border-white/10 text-white rounded-full hover:bg-white/10 transition-colors flex items-center gap-2">
+        <Cpu size={18} />
+        <span>Workload Models</span>
+      </a>
+      <a href="/foundations" class="px-6 py-3.5 text-slate-400 hover:text-white transition-colors text-sm font-mono flex items-center gap-1.5">
+        <Terminal size={16} />
+        <span>Foundations</span>
       </a>
     </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     
-    <a href="/foundations" class="feature-card block group">
+    <a href="/workbench" class="feature-card block group">
       <SpotlightCard>
-        <div class="h-12 w-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 text-blue-400">
-          <Terminal size={24} />
+        <div class="h-12 w-12 bg-rust/10 border border-rust/20 rounded-lg flex items-center justify-center mb-4 text-rust group-hover:scale-110 transition-transform">
+          <Activity size={24} />
         </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Foundations</h3>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-rust transition-colors text-white">Investigation Workbench</h3>
         <p class="text-sm text-slate-400 leading-relaxed">
-          Pure Rust. No Frameworks. Understanding ownership, lifetimes, and the borrow checker at the deepest level.
+          Interactive execution swimlanes, scrub cursor, event stream inspection, and automated deterministic incident diagnoses.
         </p>
       </SpotlightCard>
     </a>
 
     <a href="/experiments" class="feature-card block group">
       <SpotlightCard>
-        <div class="h-12 w-12 bg-rust/10 rounded-lg flex items-center justify-center mb-4 text-rust">
+        <div class="h-12 w-12 bg-emerald-500/10 border border-emerald-500/20 rounded-lg flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
           <Cpu size={24} />
         </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-rust transition-colors">Experiments</h3>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors text-white">Workload Models</h3>
         <p class="text-sm text-slate-400 leading-relaxed">
-          Unsafe Rust, concurrency models, and embedded systems logic. Where the theory hits the metal.
+          Reproducible lock contention, async starvation, and zero-copy pipelines designed to generate real flight recordings.
         </p>
       </SpotlightCard>
     </a>
 
-    <a href="/benches" class="feature-card block group">
+    <a href="/foundations" class="feature-card block group">
       <SpotlightCard>
-        <div class="h-12 w-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4 text-emerald-400">
-          <Activity size={24} />
+        <div class="h-12 w-12 bg-blue-500/10 border border-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform">
+          <Terminal size={24} />
         </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">Benches</h3>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors text-white">Foundations Reference</h3>
         <p class="text-sm text-slate-400 leading-relaxed">
-          Data-driven decisions. Visualizing performance trade-offs between different Rust approaches.
+          The engineering bedrock. Move semantics, borrowing rules matrix, and zero-allocation slice abstractions.
         </p>
       </SpotlightCard>
     </a>

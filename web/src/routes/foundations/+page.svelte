@@ -90,8 +90,10 @@
       <div class="spine-line absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-rust/50 to-transparent -translate-x-1/2 h-0 z-0 hidden md:block"></div>
 
       {#each topics as topic, i (topic.id)}
-        <a href="/foundations/{topic.slug}" 
-           class="armor-plate group relative w-full md:w-[85%] p-8 md:p-10 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgba(183,65,14,0.1)] z-10 opacity-0 
+        <svelte:element
+           this={topic.slug === 'ownership' ? 'a' : 'div'}
+           href={topic.slug === 'ownership' ? '/foundations/ownership' : undefined}
+           class="armor-plate group relative w-full md:w-[85%] p-8 md:p-10 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 {topic.slug === 'ownership' ? 'hover:-translate-y-2 hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgba(183,65,14,0.1)] cursor-pointer' : 'opacity-80'} z-10 opacity-0 
            {i % 2 === 0 
              ? 'md:mr-auto md:-translate-x-12 md:border-l-4 md:border-l-rust/60 md:rounded-tl-none' 
              : 'md:ml-auto md:translate-x-12 md:border-r-4 md:border-r-rust/60 md:rounded-tr-none'}"
@@ -119,7 +121,7 @@
           </div>
 
           <div class="absolute inset-0 opacity-[0.03] bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] pointer-events-none"></div>
-        </a>
+        </svelte:element>
       {/each}
     </div>
 
