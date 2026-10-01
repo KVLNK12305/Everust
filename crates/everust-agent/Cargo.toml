@@ -1,0 +1,12 @@
+[package]
+name = "everust-agent"
+version = "0.1.0"
+edition = "2021"
+description = "In-process runtime and concurrency instrumentation agent for Everust"
+license = "MIT"
+
+[dependencies]
+everust-core = { path = "../everust-core" }
+everust-recorder = { path = "../everust-recorder" }
+parking_lot = "0.12"
+tracing = "0.1"

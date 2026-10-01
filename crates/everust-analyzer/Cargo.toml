@@ -1,0 +1,9 @@
+[package]
+name = "everust-analyzer"
+version = "0.1.0"
+edition = "2021"
+description = "Deterministic runtime anomaly and stall analyzer for Everust flight recordings"
+license = "MIT"
+
+[dependencies]
+everust-core = { path = "../everust-core" }

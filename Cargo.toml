@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/everust-core",
+    "crates/everust-agent",
+    "crates/everust-recorder",
+    "crates/everust-analyzer",
+    "crates/everust-cli",
+    "workloads/lock-contention",
+    "foundations/ownerships",
+    "foundations/structs_enums_regex/structs",
+    "foundations/ghostshell_patterns",
+]

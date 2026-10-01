@@ -1,0 +1,3100 @@
+{
+  "header": {
+    "magic": "EVR1",
+    "version": 1,
+    "service_name": "lock-contention-service",
+    "pid": 44806,
+    "start_timestamp_ns": 1790878604148238294,
+    "end_timestamp_ns": 1790878604230326935,
+    "total_events": 252
+  },
+  "events": [
+    {
+      "id": 1,
+      "timestamp_ns": 1790878604148238294,
+      "thread_id": 1,
+      "event": {
+        "type": "TaskSpawn",
+        "data": {
+          "task_id": 100,
+          "name": "worker-task-0"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "timestamp_ns": 1790878604148249412,
+      "thread_id": 1,
+      "event": {
+        "type": "TaskSpawn",
+        "data": {
+          "task_id": 101,
+          "name": "worker-task-1"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "timestamp_ns": 1790878604148250904,
+      "thread_id": 1,
+      "event": {
+        "type": "TaskSpawn",
+        "data": {
+          "task_id": 102,
+          "name": "worker-task-2"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "timestamp_ns": 1790878604148251908,
+      "thread_id": 1,
+      "event": {
+        "type": "TaskSpawn",
+        "data": {
+          "task_id": 103,
+          "name": "worker-task-3"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "timestamp_ns": 1790878604148270461,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 6,
+      "timestamp_ns": 1790878604148272247,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 7,
+      "timestamp_ns": 1790878604148273175,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 358
+        }
+      }
+    },
+    {
+      "id": 8,
+      "timestamp_ns": 1790878604148387047,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 9,
+      "timestamp_ns": 1790878604148388501,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 10,
+      "timestamp_ns": 1790878604148456073,
+      "thread_id": 15,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 11,
+      "timestamp_ns": 1790878604148457218,
+      "thread_id": 15,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 12,
+      "timestamp_ns": 1790878604148468389,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 13,
+      "timestamp_ns": 1790878604148469694,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 14,
+      "timestamp_ns": 1790878604154341982,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 6060082
+        }
+      }
+    },
+    {
+      "id": 15,
+      "timestamp_ns": 1790878604154431271,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 6037486
+        }
+      }
+    },
+    {
+      "id": 16,
+      "timestamp_ns": 1790878604154588203,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 154942
+        }
+      }
+    },
+    {
+      "id": 17,
+      "timestamp_ns": 1790878604154710860,
+      "thread_id": 15,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 6249857
+        }
+      }
+    },
+    {
+      "id": 18,
+      "timestamp_ns": 1790878604154866836,
+      "thread_id": 15,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154157
+        }
+      }
+    },
+    {
+      "id": 19,
+      "timestamp_ns": 1790878604155079354,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 6600180
+        }
+      }
+    },
+    {
+      "id": 20,
+      "timestamp_ns": 1790878604155237883,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 156331
+        }
+      }
+    },
+    {
+      "id": 21,
+      "timestamp_ns": 1790878604157675271,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 22,
+      "timestamp_ns": 1790878604157677254,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 23,
+      "timestamp_ns": 1790878604157677922,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 134
+        }
+      }
+    },
+    {
+      "id": 24,
+      "timestamp_ns": 1790878604157720300,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 25,
+      "timestamp_ns": 1790878604157721574,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 26,
+      "timestamp_ns": 1790878604157834253,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 155076
+        }
+      }
+    },
+    {
+      "id": 27,
+      "timestamp_ns": 1790878604157864789,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 28,
+      "timestamp_ns": 1790878604157865656,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 29,
+      "timestamp_ns": 1790878604157877634,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 153103
+        }
+      }
+    },
+    {
+      "id": 30,
+      "timestamp_ns": 1790878604157946980,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 31,
+      "timestamp_ns": 1790878604157948084,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 32,
+      "timestamp_ns": 1790878604158034137,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 154711
+        }
+      }
+    },
+    {
+      "id": 33,
+      "timestamp_ns": 1790878604158073694,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 205171
+        }
+      }
+    },
+    {
+      "id": 34,
+      "timestamp_ns": 1790878604158230148,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154682
+        }
+      }
+    },
+    {
+      "id": 35,
+      "timestamp_ns": 1790878604158365855,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 414860
+        }
+      }
+    },
+    {
+      "id": 36,
+      "timestamp_ns": 1790878604158520536,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 153510
+        }
+      }
+    },
+    {
+      "id": 37,
+      "timestamp_ns": 1790878604161084278,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 38,
+      "timestamp_ns": 1790878604161085705,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 39,
+      "timestamp_ns": 1790878604161086460,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 169
+        }
+      }
+    },
+    {
+      "id": 40,
+      "timestamp_ns": 1790878604161208135,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 41,
+      "timestamp_ns": 1790878604161209194,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 42,
+      "timestamp_ns": 1790878604161242462,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154715
+        }
+      }
+    },
+    {
+      "id": 43,
+      "timestamp_ns": 1790878604161255484,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 44,
+      "timestamp_ns": 1790878604161256239,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 45,
+      "timestamp_ns": 1790878604161274496,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 46,
+      "timestamp_ns": 1790878604161275731,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 47,
+      "timestamp_ns": 1790878604161334436,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 122149
+        }
+      }
+    },
+    {
+      "id": 48,
+      "timestamp_ns": 1790878604161489593,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 153897
+        }
+      }
+    },
+    {
+      "id": 49,
+      "timestamp_ns": 1790878604161585006,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 324964
+        }
+      }
+    },
+    {
+      "id": 50,
+      "timestamp_ns": 1790878604161742451,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 155426
+        }
+      }
+    },
+    {
+      "id": 51,
+      "timestamp_ns": 1790878604161793223,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 514419
+        }
+      }
+    },
+    {
+      "id": 52,
+      "timestamp_ns": 1790878604161949893,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 154852
+        }
+      }
+    },
+    {
+      "id": 53,
+      "timestamp_ns": 1790878604164452035,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 54,
+      "timestamp_ns": 1790878604164453522,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 55,
+      "timestamp_ns": 1790878604164454329,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 232
+        }
+      }
+    },
+    {
+      "id": 56,
+      "timestamp_ns": 1790878604164492067,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 57,
+      "timestamp_ns": 1790878604164493333,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 58,
+      "timestamp_ns": 1790878604165730966,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 59,
+      "timestamp_ns": 1790878604165731966,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 60,
+      "timestamp_ns": 1790878604165787959,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 61,
+      "timestamp_ns": 1790878604165789469,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 62,
+      "timestamp_ns": 1790878604170517573,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 6057561
+        }
+      }
+    },
+    {
+      "id": 63,
+      "timestamp_ns": 1790878604170618922,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 6122066
+        }
+      }
+    },
+    {
+      "id": 64,
+      "timestamp_ns": 1790878604170777285,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 156142
+        }
+      }
+    },
+    {
+      "id": 65,
+      "timestamp_ns": 1790878604170862639,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 5126175
+        }
+      }
+    },
+    {
+      "id": 66,
+      "timestamp_ns": 1790878604171089676,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 222630
+        }
+      }
+    },
+    {
+      "id": 67,
+      "timestamp_ns": 1790878604171103905,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 5310723
+        }
+      }
+    },
+    {
+      "id": 68,
+      "timestamp_ns": 1790878604171261060,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 155089
+        }
+      }
+    },
+    {
+      "id": 69,
+      "timestamp_ns": 1790878604173733472,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 70,
+      "timestamp_ns": 1790878604173734716,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 71,
+      "timestamp_ns": 1790878604173735366,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 257
+        }
+      }
+    },
+    {
+      "id": 72,
+      "timestamp_ns": 1790878604173887970,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 152196
+        }
+      }
+    },
+    {
+      "id": 73,
+      "timestamp_ns": 1790878604173905487,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 74,
+      "timestamp_ns": 1790878604173905775,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 75,
+      "timestamp_ns": 1790878604173906077,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 27
+        }
+      }
+    },
+    {
+      "id": 76,
+      "timestamp_ns": 1790878604174032579,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 77,
+      "timestamp_ns": 1790878604174033709,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 78,
+      "timestamp_ns": 1790878604174058026,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 151560
+        }
+      }
+    },
+    {
+      "id": 79,
+      "timestamp_ns": 1790878604174061145,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 80,
+      "timestamp_ns": 1790878604174061408,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 81,
+      "timestamp_ns": 1790878604174113116,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 76441
+        }
+      }
+    },
+    {
+      "id": 82,
+      "timestamp_ns": 1790878604174267732,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 153534
+        }
+      }
+    },
+    {
+      "id": 83,
+      "timestamp_ns": 1790878604174317671,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 253353
+        }
+      }
+    },
+    {
+      "id": 84,
+      "timestamp_ns": 1790878604174472037,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 153283
+        }
+      }
+    },
+    {
+      "id": 85,
+      "timestamp_ns": 1790878604177320831,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 86,
+      "timestamp_ns": 1790878604177322203,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 87,
+      "timestamp_ns": 1790878604177322931,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 184
+        }
+      }
+    },
+    {
+      "id": 88,
+      "timestamp_ns": 1790878604177451658,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 89,
+      "timestamp_ns": 1790878604177452629,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 90,
+      "timestamp_ns": 1790878604177478448,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 154294
+        }
+      }
+    },
+    {
+      "id": 91,
+      "timestamp_ns": 1790878604177490953,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 92,
+      "timestamp_ns": 1790878604177493075,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 93,
+      "timestamp_ns": 1790878604177547562,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 91966
+        }
+      }
+    },
+    {
+      "id": 94,
+      "timestamp_ns": 1790878604177577055,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 95,
+      "timestamp_ns": 1790878604177578031,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 96,
+      "timestamp_ns": 1790878604177702358,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 153710
+        }
+      }
+    },
+    {
+      "id": 97,
+      "timestamp_ns": 1790878604177706557,
+      "thread_id": 16,
+      "event": {
+        "type": "BlockingOperation",
+        "data": {
+          "task_id": 103,
+          "name": "sync_file_read_on_worker",
+          "duration_ns": 8500000
+        }
+      }
+    },
+    {
+      "id": 98,
+      "timestamp_ns": 1790878604177774607,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 277517
+        }
+      }
+    },
+    {
+      "id": 99,
+      "timestamp_ns": 1790878604177932017,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 155449
+        }
+      }
+    },
+    {
+      "id": 100,
+      "timestamp_ns": 1790878604178059209,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 478339
+        }
+      }
+    },
+    {
+      "id": 101,
+      "timestamp_ns": 1790878604178214317,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 153415
+        }
+      }
+    },
+    {
+      "id": 102,
+      "timestamp_ns": 1790878604180824946,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 103,
+      "timestamp_ns": 1790878604180826509,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 104,
+      "timestamp_ns": 1790878604180827275,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 188
+        }
+      }
+    },
+    {
+      "id": 105,
+      "timestamp_ns": 1790878604180962220,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 106,
+      "timestamp_ns": 1790878604180963801,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 107,
+      "timestamp_ns": 1790878604181102421,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 108,
+      "timestamp_ns": 1790878604181103400,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 109,
+      "timestamp_ns": 1790878604181226413,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 110,
+      "timestamp_ns": 1790878604181227874,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 111,
+      "timestamp_ns": 1790878604186890246,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 6058486
+        }
+      }
+    },
+    {
+      "id": 112,
+      "timestamp_ns": 1790878604187037136,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 6063245
+        }
+      }
+    },
+    {
+      "id": 113,
+      "timestamp_ns": 1790878604187195213,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 156574
+        }
+      }
+    },
+    {
+      "id": 114,
+      "timestamp_ns": 1790878604187208256,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 6101708
+        }
+      }
+    },
+    {
+      "id": 115,
+      "timestamp_ns": 1790878604187363701,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 154121
+        }
+      }
+    },
+    {
+      "id": 116,
+      "timestamp_ns": 1790878604187516852,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 6284101
+        }
+      }
+    },
+    {
+      "id": 117,
+      "timestamp_ns": 1790878604187674413,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 155589
+        }
+      }
+    },
+    {
+      "id": 118,
+      "timestamp_ns": 1790878604190157363,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 119,
+      "timestamp_ns": 1790878604190158882,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 120,
+      "timestamp_ns": 1790878604190159643,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 164
+        }
+      }
+    },
+    {
+      "id": 121,
+      "timestamp_ns": 1790878604190219986,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 122,
+      "timestamp_ns": 1790878604190221229,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 123,
+      "timestamp_ns": 1790878604190264219,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 124,
+      "timestamp_ns": 1790878604190265459,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 125,
+      "timestamp_ns": 1790878604190306622,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 126,
+      "timestamp_ns": 1790878604190307861,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 127,
+      "timestamp_ns": 1790878604190315967,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 155102
+        }
+      }
+    },
+    {
+      "id": 128,
+      "timestamp_ns": 1790878604190356241,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 132074
+        }
+      }
+    },
+    {
+      "id": 129,
+      "timestamp_ns": 1790878604190512722,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154674
+        }
+      }
+    },
+    {
+      "id": 130,
+      "timestamp_ns": 1790878604190554128,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 285781
+        }
+      }
+    },
+    {
+      "id": 131,
+      "timestamp_ns": 1790878604190712505,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 155880
+        }
+      }
+    },
+    {
+      "id": 132,
+      "timestamp_ns": 1790878604190751428,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 440650
+        }
+      }
+    },
+    {
+      "id": 133,
+      "timestamp_ns": 1790878604190907816,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 154601
+        }
+      }
+    },
+    {
+      "id": 134,
+      "timestamp_ns": 1790878604193476548,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 135,
+      "timestamp_ns": 1790878604193478134,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 136,
+      "timestamp_ns": 1790878604193479044,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 345
+        }
+      }
+    },
+    {
+      "id": 137,
+      "timestamp_ns": 1790878604193525715,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 138,
+      "timestamp_ns": 1790878604193526923,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 139,
+      "timestamp_ns": 1790878604193571845,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 140,
+      "timestamp_ns": 1790878604193573075,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 141,
+      "timestamp_ns": 1790878604193636643,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 156319
+        }
+      }
+    },
+    {
+      "id": 142,
+      "timestamp_ns": 1790878604193677988,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 148172
+        }
+      }
+    },
+    {
+      "id": 143,
+      "timestamp_ns": 1790878604193834347,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154570
+        }
+      }
+    },
+    {
+      "id": 144,
+      "timestamp_ns": 1790878604193874297,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 298279
+        }
+      }
+    },
+    {
+      "id": 145,
+      "timestamp_ns": 1790878604194030689,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154600
+        }
+      }
+    },
+    {
+      "id": 146,
+      "timestamp_ns": 1790878604194936480,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 147,
+      "timestamp_ns": 1790878604194937533,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 148,
+      "timestamp_ns": 1790878604194938169,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 314
+        }
+      }
+    },
+    {
+      "id": 149,
+      "timestamp_ns": 1790878604195090929,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 152328
+        }
+      }
+    },
+    {
+      "id": 150,
+      "timestamp_ns": 1790878604196382343,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 151,
+      "timestamp_ns": 1790878604196383298,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 152,
+      "timestamp_ns": 1790878604196383757,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 139
+        }
+      }
+    },
+    {
+      "id": 153,
+      "timestamp_ns": 1790878604196536478,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 152279
+        }
+      }
+    },
+    {
+      "id": 154,
+      "timestamp_ns": 1790878604197755954,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 155,
+      "timestamp_ns": 1790878604197756935,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 156,
+      "timestamp_ns": 1790878604197757409,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 145
+        }
+      }
+    },
+    {
+      "id": 157,
+      "timestamp_ns": 1790878604197840466,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 158,
+      "timestamp_ns": 1790878604197841898,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 159,
+      "timestamp_ns": 1790878604197884045,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 160,
+      "timestamp_ns": 1790878604197885301,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 161,
+      "timestamp_ns": 1790878604199102328,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 162,
+      "timestamp_ns": 1790878604199103596,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 163,
+      "timestamp_ns": 1790878604203815818,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 6054792
+        }
+      }
+    },
+    {
+      "id": 164,
+      "timestamp_ns": 1790878604203879418,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 6033450
+        }
+      }
+    },
+    {
+      "id": 165,
+      "timestamp_ns": 1790878604204036484,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 155098
+        }
+      }
+    },
+    {
+      "id": 166,
+      "timestamp_ns": 1790878604204078184,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 6189949
+        }
+      }
+    },
+    {
+      "id": 167,
+      "timestamp_ns": 1790878604204246113,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 166068
+        }
+      }
+    },
+    {
+      "id": 168,
+      "timestamp_ns": 1790878604204294955,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 5188246
+        }
+      }
+    },
+    {
+      "id": 169,
+      "timestamp_ns": 1790878604204452795,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 155457
+        }
+      }
+    },
+    {
+      "id": 170,
+      "timestamp_ns": 1790878604206976794,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 171,
+      "timestamp_ns": 1790878604206977880,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 172,
+      "timestamp_ns": 1790878604206978415,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 204
+        }
+      }
+    },
+    {
+      "id": 173,
+      "timestamp_ns": 1790878604207031896,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 174,
+      "timestamp_ns": 1790878604207033243,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 175,
+      "timestamp_ns": 1790878604207101886,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 176,
+      "timestamp_ns": 1790878604207103145,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 177,
+      "timestamp_ns": 1790878604207116888,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 178,
+      "timestamp_ns": 1790878604207118193,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 179,
+      "timestamp_ns": 1790878604207131185,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 152366
+        }
+      }
+    },
+    {
+      "id": 180,
+      "timestamp_ns": 1790878604207138078,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 102820
+        }
+      }
+    },
+    {
+      "id": 181,
+      "timestamp_ns": 1790878604207293763,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154247
+        }
+      }
+    },
+    {
+      "id": 182,
+      "timestamp_ns": 1790878604207366192,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 260058
+        }
+      }
+    },
+    {
+      "id": 183,
+      "timestamp_ns": 1790878604207523132,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154971
+        }
+      }
+    },
+    {
+      "id": 184,
+      "timestamp_ns": 1790878604207530222,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 410540
+        }
+      }
+    },
+    {
+      "id": 185,
+      "timestamp_ns": 1790878604207687294,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 155265
+        }
+      }
+    },
+    {
+      "id": 186,
+      "timestamp_ns": 1790878604210226861,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 187,
+      "timestamp_ns": 1790878604210228217,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 188,
+      "timestamp_ns": 1790878604210228981,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 152
+        }
+      }
+    },
+    {
+      "id": 189,
+      "timestamp_ns": 1790878604210233932,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 190,
+      "timestamp_ns": 1790878604210234957,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 191,
+      "timestamp_ns": 1790878604210247342,
+      "thread_id": 13,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 192,
+      "timestamp_ns": 1790878604210248385,
+      "thread_id": 13,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 193,
+      "timestamp_ns": 1790878604210314067,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 194,
+      "timestamp_ns": 1790878604210315050,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 195,
+      "timestamp_ns": 1790878604210384939,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 154687
+        }
+      }
+    },
+    {
+      "id": 196,
+      "timestamp_ns": 1790878604210390934,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 154486
+        }
+      }
+    },
+    {
+      "id": 197,
+      "timestamp_ns": 1790878604210545768,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 153558
+        }
+      }
+    },
+    {
+      "id": 198,
+      "timestamp_ns": 1790878604210552418,
+      "thread_id": 13,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 302515
+        }
+      }
+    },
+    {
+      "id": 199,
+      "timestamp_ns": 1790878604210707258,
+      "thread_id": 13,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 153587
+        }
+      }
+    },
+    {
+      "id": 200,
+      "timestamp_ns": 1790878604210837820,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 512145
+        }
+      }
+    },
+    {
+      "id": 201,
+      "timestamp_ns": 1790878604210992424,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 153411
+        }
+      }
+    },
+    {
+      "id": 202,
+      "timestamp_ns": 1790878604213571540,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 203,
+      "timestamp_ns": 1790878604213572797,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 204,
+      "timestamp_ns": 1790878604213573504,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 139
+        }
+      }
+    },
+    {
+      "id": 205,
+      "timestamp_ns": 1790878604213640798,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 206,
+      "timestamp_ns": 1790878604213641798,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 207,
+      "timestamp_ns": 1790878604213648784,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 208,
+      "timestamp_ns": 1790878604213649743,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 209,
+      "timestamp_ns": 1790878604213729271,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154544
+        }
+      }
+    },
+    {
+      "id": 210,
+      "timestamp_ns": 1790878604213795069,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 150282
+        }
+      }
+    },
+    {
+      "id": 211,
+      "timestamp_ns": 1790878604214828567,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 212,
+      "timestamp_ns": 1790878604214830365,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 213,
+      "timestamp_ns": 1790878604219855441,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 6056694
+        }
+      }
+    },
+    {
+      "id": 214,
+      "timestamp_ns": 1790878604219883096,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 215,
+      "timestamp_ns": 1790878604219883503,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 216,
+      "timestamp_ns": 1790878604220062628,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 6408883
+        }
+      }
+    },
+    {
+      "id": 217,
+      "timestamp_ns": 1790878604220219274,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154600
+        }
+      }
+    },
+    {
+      "id": 218,
+      "timestamp_ns": 1790878604220265286,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 5431643
+        }
+      }
+    },
+    {
+      "id": 219,
+      "timestamp_ns": 1790878604220422220,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 155145
+        }
+      }
+    },
+    {
+      "id": 220,
+      "timestamp_ns": 1790878604220489669,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 603067
+        }
+      }
+    },
+    {
+      "id": 221,
+      "timestamp_ns": 1790878604220644843,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 153776
+        }
+      }
+    },
+    {
+      "id": 222,
+      "timestamp_ns": 1790878604223426666,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 223,
+      "timestamp_ns": 1790878604223428271,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103
+        }
+      }
+    },
+    {
+      "id": 224,
+      "timestamp_ns": 1790878604223429136,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "wait_ns": 281
+        }
+      }
+    },
+    {
+      "id": 225,
+      "timestamp_ns": 1790878604223470048,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 226,
+      "timestamp_ns": 1790878604223471408,
+      "thread_id": 16,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 227,
+      "timestamp_ns": 1790878604223530318,
+      "thread_id": 14,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 228,
+      "timestamp_ns": 1790878604223531571,
+      "thread_id": 14,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101
+        }
+      }
+    },
+    {
+      "id": 229,
+      "timestamp_ns": 1790878604223583862,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 230,
+      "timestamp_ns": 1790878604223585200,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 231,
+      "timestamp_ns": 1790878604223585399,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 103,
+          "held_ns": 154899
+        }
+      }
+    },
+    {
+      "id": 232,
+      "timestamp_ns": 1790878604223641971,
+      "thread_id": 16,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 167492
+        }
+      }
+    },
+    {
+      "id": 233,
+      "timestamp_ns": 1790878604223796598,
+      "thread_id": 16,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 153531
+        }
+      }
+    },
+    {
+      "id": 234,
+      "timestamp_ns": 1790878604223803340,
+      "thread_id": 14,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "wait_ns": 270436
+        }
+      }
+    },
+    {
+      "id": 235,
+      "timestamp_ns": 1790878604223958617,
+      "thread_id": 14,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 101,
+          "held_ns": 154052
+        }
+      }
+    },
+    {
+      "id": 236,
+      "timestamp_ns": 1790878604223996372,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 408323
+        }
+      }
+    },
+    {
+      "id": 237,
+      "timestamp_ns": 1790878604224152719,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 154571
+        }
+      }
+    },
+    {
+      "id": 238,
+      "timestamp_ns": 1790878604226794249,
+      "thread_id": 17,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 239,
+      "timestamp_ns": 1790878604226795745,
+      "thread_id": 17,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100
+        }
+      }
+    },
+    {
+      "id": 240,
+      "timestamp_ns": 1790878604226796480,
+      "thread_id": 17,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "wait_ns": 160
+        }
+      }
+    },
+    {
+      "id": 241,
+      "timestamp_ns": 1790878604226885272,
+      "thread_id": 2,
+      "event": {
+        "type": "TaskWake",
+        "data": {
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 242,
+      "timestamp_ns": 1790878604226886525,
+      "thread_id": 2,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102
+        }
+      }
+    },
+    {
+      "id": 243,
+      "timestamp_ns": 1790878604226952536,
+      "thread_id": 17,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 100,
+          "held_ns": 154693
+        }
+      }
+    },
+    {
+      "id": 244,
+      "timestamp_ns": 1790878604226952785,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskComplete",
+        "data": {
+          "task_id": 101,
+          "total_duration_ns": 50000000
+        }
+      }
+    },
+    {
+      "id": 245,
+      "timestamp_ns": 1790878604226960418,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskComplete",
+        "data": {
+          "task_id": 103,
+          "total_duration_ns": 50000000
+        }
+      }
+    },
+    {
+      "id": 246,
+      "timestamp_ns": 1790878604227002253,
+      "thread_id": 2,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "wait_ns": 112822
+        }
+      }
+    },
+    {
+      "id": 247,
+      "timestamp_ns": 1790878604227159035,
+      "thread_id": 2,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 102,
+          "held_ns": 154589
+        }
+      }
+    },
+    {
+      "id": 248,
+      "timestamp_ns": 1790878604230170974,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskComplete",
+        "data": {
+          "task_id": 102,
+          "total_duration_ns": 50000000
+        }
+      }
+    },
+    {
+      "id": 249,
+      "timestamp_ns": 1790878604230176598,
+      "thread_id": 16,
+      "event": {
+        "type": "TaskComplete",
+        "data": {
+          "task_id": 100,
+          "total_duration_ns": 50000000
+        }
+      }
+    },
+    {
+      "id": 250,
+      "timestamp_ns": 1790878604230325400,
+      "thread_id": 1,
+      "event": {
+        "type": "LockWait",
+        "data": {
+          "lock_id": 1,
+          "task_id": 999
+        }
+      }
+    },
+    {
+      "id": 251,
+      "timestamp_ns": 1790878604230326547,
+      "thread_id": 1,
+      "event": {
+        "type": "LockAcquire",
+        "data": {
+          "lock_id": 1,
+          "task_id": 999,
+          "wait_ns": 133
+        }
+      }
+    },
+    {
+      "id": 252,
+      "timestamp_ns": 1790878604230326935,
+      "thread_id": 1,
+      "event": {
+        "type": "LockRelease",
+        "data": {
+          "lock_id": 1,
+          "task_id": 999,
+          "held_ns": 69
+        }
+      }
+    }
+  ]
+}

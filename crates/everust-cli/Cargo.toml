@@ -1,0 +1,16 @@
+[package]
+name = "everust-cli"
+version = "0.1.0"
+edition = "2021"
+description = "Command-line tool for recording, inspecting, and replaying Everust flight recordings"
+license = "MIT"
+
+[[bin]]
+name = "everust"
+path = "src/main.rs"
+
+[dependencies]
+everust-core = { path = "../everust-core" }
+everust-recorder = { path = "../everust-recorder" }
+everust-analyzer = { path = "../everust-analyzer" }
+clap = { version = "4.5", features = ["derive"] }

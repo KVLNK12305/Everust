@@ -1,0 +1,11 @@
+[package]
+name = "everust-core"
+version = "0.1.0"
+edition = "2021"
+description = "Canonical event schemas, recording containers, and finding types for Everust"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
