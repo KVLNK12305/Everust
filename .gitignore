@@ -22,6 +22,10 @@ Cargo.lock
 # Windows debug symbols
 *.pdb
 
+# Everust flight recording runtime outputs
+*.evr
+!format/evr/*.evr
+
 
 ########################################
 # Frontend (SvelteKit / Vite / Bun)
