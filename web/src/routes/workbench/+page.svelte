@@ -2,10 +2,11 @@
   import { onMount } from "svelte";
   import { 
     Activity, AlertTriangle, CheckCircle2, ChevronRight, Clock, 
-    Cpu, Filter, Layers, Lock, Play, RefreshCw, ShieldAlert, Terminal, Zap 
+    Cpu, Filter, Layers, Lock, Play, RefreshCw, ShieldAlert, Terminal, Zap,
+    Upload, FileText, XCircle
   } from "lucide-svelte";
 
-  // ─── Flight Recording Sample Data (matches lock-contention workload) ───
+  // ─── Flight Recording Data Types ───
   interface EventItem {
     id: number;
     timestamp_offset_ms: number;
@@ -28,7 +29,7 @@
     timestamp_ms: number;
   }
 
-  const recordingMetadata = {
+  let recordingMetadata = {
     file: "lock_contention.evr",
     service: "lock-contention-service",
     pid: 4912,
@@ -39,7 +40,7 @@
     bufferMode: "Rolling (20,000 capacity)"
   };
 
-  const findings: FindingItem[] = [
+  let findings: FindingItem[] = [
     {
       code: "EVERUST-L01",
       title: "Severe Mutex Contention",
@@ -70,7 +71,7 @@
     }
   ];
 
-  const rawEvents: EventItem[] = [
+  let rawEvents: EventItem[] = [
     { id: 1, timestamp_offset_ms: 0.1, thread_id: 1, task_id: 100, type: "TaskSpawn", details: "worker-task-0 spawned" },
     { id: 2, timestamp_offset_ms: 0.2, thread_id: 2, task_id: 101, type: "TaskSpawn", details: "worker-task-1 spawned" },
     { id: 3, timestamp_offset_ms: 0.4, thread_id: 3, task_id: 102, type: "TaskSpawn", details: "worker-task-2 spawned" },
@@ -94,6 +95,165 @@
   let eventFilter: string = "ALL";
   let scrubPositionMs = 7.6;
 
+  // ─── File Upload & Ingestion State ───
+  let fileInput: HTMLInputElement;
+  let isDragging = false;
+  let uploadError: string | null = null;
+  let uploadSuccess: string | null = null;
+
+  async function loadEvrFile(file: File) {
+    try {
+      uploadError = null;
+      uploadSuccess = null;
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+
+      if (!parsed.header || parsed.header.magic !== "EVR1") {
+        throw new Error(`Invalid file magic: expected EVR1, got ${parsed?.header?.magic || 'unknown'}`);
+      }
+
+      const startNs = parsed.header.start_timestamp_ns || 0;
+      const endNs = parsed.header.end_timestamp_ns || 0;
+      const durationMs = endNs > startNs ? (endNs - startNs) / 1_000_000 : 50;
+
+      recordingMetadata = {
+        file: file.name,
+        service: parsed.header.service_name || "rust-service",
+        pid: parsed.header.pid || 0,
+        magic: parsed.header.magic,
+        version: parsed.header.version || 1,
+        eventsCount: parsed.events?.length || 0,
+        durationMs: parseFloat(durationMs.toFixed(1)),
+        bufferMode: "Custom .evr Recording"
+      };
+
+      if (Array.isArray(parsed.events) && parsed.events.length > 0) {
+        const newEvents: EventItem[] = [];
+        const newFindings: FindingItem[] = [];
+        const wakeTimes: Record<number, number> = {};
+
+        parsed.events.forEach((evRecord: any) => {
+          const ev = evRecord.event;
+          const tsOffsetMs = startNs > 0 ? (evRecord.timestamp_ns - startNs) / 1_000_000 : 0;
+          const data = ev.data || {};
+          const taskId = data.task_id || 0;
+          let details = "";
+          let duration_ms: number | undefined = undefined;
+          let severity: "critical" | "warning" | "info" | undefined = undefined;
+
+          switch (ev.type) {
+            case "TaskSpawn":
+              details = `Task #${taskId} (${data.name || 'unnamed'}) spawned`;
+              break;
+            case "TaskWake":
+              details = `Task #${taskId} woken and placed in queue`;
+              wakeTimes[taskId] = evRecord.timestamp_ns;
+              break;
+            case "TaskPoll":
+              duration_ms = data.elapsed_ns ? data.elapsed_ns / 1_000_000 : undefined;
+              details = `Task #${taskId} polled for ${duration_ms?.toFixed(2)}ms`;
+              if (duration_ms && duration_ms > 5.0) {
+                severity = "critical";
+                newFindings.push({
+                  code: "EVERUST-T01",
+                  title: `Long Task Poll on Task #${taskId}`,
+                  description: `Task #${taskId} executed uninterrupted for ${duration_ms.toFixed(2)}ms without yielding.`,
+                  severity: "critical",
+                  task_id: taskId,
+                  duration_ms: parseFloat(duration_ms.toFixed(1)),
+                  timestamp_ms: parseFloat(tsOffsetMs.toFixed(1))
+                });
+              }
+              break;
+            case "LockWait":
+              details = `Task #${taskId} waiting for Lock #${data.lock_id}`;
+              severity = "warning";
+              break;
+            case "LockAcquire":
+              duration_ms = data.wait_ns ? data.wait_ns / 1_000_000 : undefined;
+              details = `Task #${taskId} acquired Lock #${data.lock_id} after ${duration_ms?.toFixed(2)}ms wait`;
+              if (duration_ms && duration_ms > 1.0) {
+                severity = "critical";
+                newFindings.push({
+                  code: "EVERUST-L01",
+                  title: `Lock Contention on Lock #${data.lock_id}`,
+                  description: `Task #${taskId} stalled for ${duration_ms.toFixed(2)}ms waiting to acquire contested Lock #${data.lock_id}.`,
+                  severity: "critical",
+                  task_id: taskId,
+                  lock_id: data.lock_id,
+                  duration_ms: parseFloat(duration_ms.toFixed(1)),
+                  timestamp_ms: parseFloat(tsOffsetMs.toFixed(1))
+                });
+              }
+              break;
+            case "LockRelease":
+              duration_ms = data.held_ns ? data.held_ns / 1_000_000 : undefined;
+              details = `Task #${taskId} released Lock #${data.lock_id} after ${duration_ms?.toFixed(2)}ms hold`;
+              break;
+            case "BlockingOperation":
+              duration_ms = data.duration_ns ? data.duration_ns / 1_000_000 : undefined;
+              details = `Blocking synchronous op '${data.name}' executed on async thread`;
+              severity = "critical";
+              newFindings.push({
+                code: "EVERUST-B01",
+                title: `Blocking Call: ${data.name}`,
+                description: `Task #${taskId} invoked blocking op '${data.name}' for ${duration_ms?.toFixed(2)}ms on runtime worker.`,
+                severity: "critical",
+                task_id: taskId,
+                duration_ms: duration_ms ? parseFloat(duration_ms.toFixed(1)) : 0,
+                timestamp_ms: parseFloat(tsOffsetMs.toFixed(1))
+              });
+              break;
+            case "TaskComplete":
+              duration_ms = data.total_duration_ns ? data.total_duration_ns / 1_000_000 : undefined;
+              details = `Task #${taskId} completed in ${duration_ms?.toFixed(1)}ms`;
+              break;
+            default:
+              details = JSON.stringify(data);
+          }
+
+          newEvents.push({
+            id: evRecord.id,
+            timestamp_offset_ms: parseFloat(tsOffsetMs.toFixed(2)),
+            thread_id: evRecord.thread_id,
+            task_id: taskId,
+            type: ev.type,
+            details,
+            duration_ms,
+            severity
+          });
+        });
+
+        rawEvents = newEvents;
+        if (newFindings.length > 0) {
+          findings = newFindings;
+          selectFinding(newFindings[0]);
+        } else if (newEvents.length > 0) {
+          selectedTaskId = newEvents[0].task_id;
+        }
+      }
+
+      uploadSuccess = `Loaded ${file.name} (${recordingMetadata.eventsCount} events, ${findings.length} findings)`;
+    } catch (err: any) {
+      uploadError = `Failed to load recording: ${err.message}`;
+    }
+  }
+
+  function handleDrop(e: DragEvent) {
+    e.preventDefault();
+    isDragging = false;
+    if (e.dataTransfer && e.dataTransfer.files.length > 0) {
+      loadEvrFile(e.dataTransfer.files[0]);
+    }
+  }
+
+  function handleFileInput(e: Event) {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      loadEvrFile(target.files[0]);
+    }
+  }
+
   $: filteredEvents = rawEvents.filter(ev => {
     if (selectedTaskId && ev.task_id !== selectedTaskId && eventFilter === "TASK") return false;
     if (eventFilter === "LOCKS" && !ev.type.startsWith("Lock")) return false;
@@ -112,8 +272,42 @@
   <title>Investigation Workbench — Everust</title>
 </svelte:head>
 
-<div class="min-h-screen bg-[#07080a] text-slate-200 font-sans pb-24 pt-20">
+<input 
+  type="file" 
+  accept=".evr,.json" 
+  class="hidden" 
+  bind:this={fileInput} 
+  on:change={handleFileInput} 
+/>
+
+<div 
+  class="min-h-screen bg-[#07080a] text-slate-200 font-sans pb-24 pt-20 transition-all {isDragging ? 'ring-4 ring-rust ring-inset bg-rust/[0.02]' : ''}"
+  on:dragover|preventDefault={() => isDragging = true}
+  on:dragleave|preventDefault={() => isDragging = false}
+  on:drop={handleDrop}
+>
   <div class="max-w-7xl mx-auto px-6 space-y-6">
+
+    <!-- Upload Status Alerts -->
+    {#if uploadError}
+      <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-xs flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <XCircle size={16} class="text-red-400" />
+          <span>{uploadError}</span>
+        </div>
+        <button on:click={() => uploadError = null} class="text-slate-400 hover:text-white">✕</button>
+      </div>
+    {/if}
+
+    {#if uploadSuccess}
+      <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <CheckCircle2 size={16} class="text-emerald-400" />
+          <span>{uploadSuccess}</span>
+        </div>
+        <button on:click={() => uploadSuccess = null} class="text-slate-400 hover:text-white">✕</button>
+      </div>
+    {/if}
 
     <!-- Top Header: Recording Metadata -->
     <header class="bg-[#0f1117] border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -132,11 +326,16 @@
         </p>
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          RECORDING VERIFIED
-        </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Load Recording Button -->
+        <button 
+          on:click={() => fileInput.click()}
+          class="px-3.5 py-1.5 rounded-lg bg-rust/20 hover:bg-rust/30 border border-rust/40 text-xs font-mono text-rust hover:text-white transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(206,75,41,0.2)]"
+        >
+          <Upload size={14} />
+          <span>Open .evr File</span>
+        </button>
+
         <a 
           href="/experiments/lock-contention"
           class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-300 transition-colors flex items-center gap-1.5"
