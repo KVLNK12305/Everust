@@ -9,59 +9,52 @@
   // Define data as a constant to ensure it loads
   const experiments = [
     { 
-      id: "05", 
-      title: "GhostShell eBPF/XDP Patterns", 
-      status: "LIVE LAB", 
-      desc: "Zero-copy &[T] slices, active zeroize memory wiping, and async actor architecture.",
-      icon: Terminal,
-      color: "text-rust",
-      border: "hover:border-rust/50",
-      bg: "hover:bg-rust/10",
-      slug: "ghostshell-patterns"
-    },
-    { 
       id: "01", 
-      title: "Lock Contention", 
-      status: "ACTIVE", 
-      desc: "Visualizing mutex starvation under high-load concurrent writes.",
+      title: "Lock Contention & Starvation", 
+      status: "LIVE WORKLOAD", 
+      desc: "Multi-threaded Mutex competition producing real .evr recordings with greedy lock hold diagnostics.",
       icon: Activity,
       color: "text-emerald-400",
       border: "hover:border-emerald-500/50",
       bg: "hover:bg-emerald-500/10",
-      slug: "lock-contention"
+      slug: "lock-contention",
+      command: "cargo run -p lock-contention"
     },
     { 
       id: "02", 
-      title: "Unsafe Boundaries", 
-      status: "WARNING", 
-      desc: "Deliberately breaking memory safety to test FFI boundaries.",
-      icon: ShieldAlert,
-      color: "text-red-400",
-      border: "hover:border-red-500/50",
-      bg: "hover:bg-red-500/10",
-      slug: "unsafe-boundaries"
+      title: "Zero-Copy &[T] Slice Pipeline", 
+      status: "LIVE LAB", 
+      desc: "Borrowed &[T] slice evaluation vs heap cloning, active memory zeroization, and Tokio actor loops.",
+      icon: Terminal,
+      color: "text-rust",
+      border: "hover:border-rust/50",
+      bg: "hover:bg-rust/10",
+      slug: "ghostshell-patterns",
+      command: "cargo test -p ghostshell_patterns"
     },
     { 
       id: "03", 
-      title: "Async Runtime", 
-      status: "IDLE", 
-      desc: "Building a custom executor to understand waker logic.",
+      title: "Async Stall & Run-Queue Starvation", 
+      status: "PLANNED (Issue #4)", 
+      desc: "Simulating compute-heavy non-yielding loops starving cooperative async tasks on Tokio threads.",
       icon: Zap,
       color: "text-yellow-400",
       border: "hover:border-yellow-500/50",
       bg: "hover:bg-yellow-500/10",
-      slug: "async-runtime"
+      slug: undefined,
+      command: "cargo run -p async-stall"
     },
     { 
       id: "04", 
-      title: "Cache Locality", 
-      status: "STABLE", 
-      desc: "Benchmarking SoA vs AoS layouts in real-time.",
+      title: "Allocation Spike Sentinel", 
+      status: "ROADMAP (v0.3)", 
+      desc: "Detecting allocator latency spikes, buffer reallocations, and glibc arena contention under load.",
       icon: Cpu,
       color: "text-blue-400",
       border: "hover:border-blue-500/50",
       bg: "hover:bg-blue-500/10",
-      slug: "cache-locality"
+      slug: undefined,
+      command: "cargo bench -p everust-recorder"
     }
   ];
 
@@ -152,9 +145,11 @@
             </p>
           </div>
 
-          <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between opacity-60 group-hover:opacity-100 transition-opacity">
-            <span class="font-mono text-xs text-slate-500 group-hover:text-white transition-colors">Initialize Sequence</span>
-            <ArrowRight size={16} class="transform group-hover:translate-x-1 transition-transform" />
+          <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between opacity-80 group-hover:opacity-100 transition-opacity">
+            <span class="font-mono text-xs text-slate-400 group-hover:text-emerald-400 transition-colors">{exp.command}</span>
+            {#if isLive}
+              <ArrowRight size={16} class="transform group-hover:translate-x-1 transition-transform text-rust" />
+            {/if}
           </div>
         </svelte:element>
       {/each}
