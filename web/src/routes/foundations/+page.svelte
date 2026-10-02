@@ -2,44 +2,37 @@
   import { onMount } from 'svelte';
   import { gsap } from 'gsap';
   // FIX 1: 'box' -> 'Box' (Icons must be PascalCase)
-  import { ArrowRight, BookOpen, Shield, Box, Link2, Lock, Zap } from 'lucide-svelte';
+  import { ArrowRight, BookOpen, Shield, Box, Link2, Lock, Zap, Cpu } from 'lucide-svelte';
 
   const topics = [
     { 
       id: "f1", 
       title: "Ownership & Borrowing", 
-      desc: "The soul of Rust. Understanding move semantics and the borrow checker.", 
-      slug: "ownership", 
+      desc: "Move semantics, reference aliasing matrix, and zero-allocation slice pointers.", 
+      href: "/foundations/ownership", 
       icon: Shield 
     },
     { 
       id: "f2", 
-      title: "Smart Pointers", 
-      desc: "Manual memory management via Box, Rc, Arc, and RefCell.", 
-      slug: "smart-pointers", 
-      icon: Box // FIX 1: Updated usage
+      title: "Type Systems & Memory Invariants", 
+      desc: "Making invalid states unrepresentable: tagged algebraic enums and struct update semantics.", 
+      href: "/foundations/types", 
+      icon: Box 
     },
     { 
       id: "f3", 
-      title: "Traits & Generics", 
-      desc: "Building shared behavior and zero-cost abstractions.", 
-      slug: "traits", 
-      icon: Link2 
+      title: "Zero-Copy & Actor Pipelines", 
+      desc: "Borrowed &[T] slice processing pipelines, active memory zeroization, and Tokio actors.", 
+      href: "/experiments/ghostshell-patterns", 
+      icon: Cpu 
     },
     { 
       id: "f4", 
-      title: "Concurrency Basics", 
-      desc: "Threads, message passing, and shared state without fear.", 
-      slug: "concurrency", 
+      title: "Concurrency & Lock Contention", 
+      desc: "Visualizing thread starvation, greedy mutex hold times, and fair vs unfair scheduling.", 
+      href: "/experiments/lock-contention", 
       icon: Zap 
-    },
-    { 
-      id: "f5", 
-      title: "Unsafe Foundations", 
-      desc: "Stepping outside the compiler's guarantees to build abstractions.", 
-      slug: "unsafe", 
-      icon: Lock 
-    },
+    }
   ];
 
   onMount(() => {
@@ -90,10 +83,9 @@
       <div class="spine-line absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-rust/50 to-transparent -translate-x-1/2 h-0 z-0 hidden md:block"></div>
 
       {#each topics as topic, i (topic.id)}
-        <svelte:element
-           this={topic.slug === 'ownership' ? 'a' : 'div'}
-           href={topic.slug === 'ownership' ? '/foundations/ownership' : undefined}
-           class="armor-plate group relative w-full md:w-[85%] p-8 md:p-10 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 {topic.slug === 'ownership' ? 'hover:-translate-y-2 hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgba(183,65,14,0.1)] cursor-pointer' : 'opacity-80'} z-10 opacity-0 
+        <a
+           href={topic.href}
+           class="armor-plate group relative w-full md:w-[85%] p-8 md:p-10 bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] hover:shadow-[0_0_30px_rgba(183,65,14,0.1)] cursor-pointer z-10 opacity-0 
            {i % 2 === 0 
              ? 'md:mr-auto md:-translate-x-12 md:border-l-4 md:border-l-rust/60 md:rounded-tl-none' 
              : 'md:ml-auto md:translate-x-12 md:border-r-4 md:border-r-rust/60 md:rounded-tr-none'}"
@@ -121,7 +113,7 @@
           </div>
 
           <div class="absolute inset-0 opacity-[0.03] bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] pointer-events-none"></div>
-        </svelte:element>
+        </a>
       {/each}
     </div>
 
