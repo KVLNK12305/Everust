@@ -11,6 +11,7 @@ path = "src/main.rs"
 
 [dependencies]
 everust-core = { path = "../everust-core" }
+everust-agent = { path = "../everust-agent" }
 everust-recorder = { path = "../everust-recorder" }
 everust-analyzer = { path = "../everust-analyzer" }
 clap = { version = "4.5", features = ["derive"] }
